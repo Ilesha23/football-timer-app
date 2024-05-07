@@ -8,12 +8,13 @@ import com.ilesha23.football.ui.firstTimeScreen.FirstTimeScreen
 import com.ilesha23.football.ui.historyScreen.HistoryScreen
 import com.ilesha23.football.ui.loginScreen.LoginScreen
 import com.ilesha23.football.ui.newGameScreen.NewGameScreen
+import com.ilesha23.football.ui.secondTimeScreen.SecondTimeScreen
 
 @Composable
 fun Navigation() {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = Screen.FirstTime.route) {
+    NavHost(navController = navController, startDestination = Screen.Login.route) {
 
         composable(Screen.Login.route) {
             LoginScreen()
@@ -32,7 +33,7 @@ fun Navigation() {
         }
 
         composable(Screen.SecondTime.route) {
-            HistoryScreen()
+            SecondTimeScreen()
         }
 
     }
