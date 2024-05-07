@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Football</string>
+
+    <!-- Login Screen -->
+    <string name="kickoff_timer">Kickoff timer</string>
+    <string name="home">home</string>
+    <string name="away">away</string>
+    <string name="time">time</string>
+    <string name="new_game">Новая игра</string>
+    <string name="history">История</string>
+    <string name="terms">Пользовательское соглашение</string>
+
 </resources>
