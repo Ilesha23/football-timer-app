@@ -1,4 +1,4 @@
-package com.ilesha23.football
+package com.ilesha23.football.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,15 +11,18 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.ilesha23.football.ui.navigation.Navigation
 import com.ilesha23.football.ui.theme.MiniprojectsTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+//        enableEdgeToEdge()
         setContent {
             MiniprojectsTheme {
-
+                Navigation()
             }
         }
     }
