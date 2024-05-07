@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.ilesha23.football.ui.historyScreen.HistoryScreen
 import com.ilesha23.football.ui.loginScreen.LoginScreen
 import com.ilesha23.football.ui.newGameScreen.NewGameScreen
 
@@ -11,7 +12,7 @@ import com.ilesha23.football.ui.newGameScreen.NewGameScreen
 fun Navigation() {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = Screen.NewGame.route) {
+    NavHost(navController = navController, startDestination = Screen.History.route) {
 
         composable(Screen.Login.route) {
             LoginScreen()
@@ -19,6 +20,10 @@ fun Navigation() {
 
         composable(Screen.NewGame.route) {
             NewGameScreen()
+        }
+
+        composable(Screen.History.route) {
+            HistoryScreen()
         }
 
     }

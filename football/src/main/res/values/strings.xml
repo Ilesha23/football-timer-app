@@ -18,4 +18,7 @@
     <string name="new_game_screen_guests">гости</string>
     <string name="new_game_screen_start">Старт</string>
 
+    <!-- History screen -->
+    <string name="history_screen_back">Назад</string>
+
 </resources>
