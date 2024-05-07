@@ -25,13 +25,24 @@ import com.ilesha23.football.ui.theme.MiniprojectsTheme
 
 @Composable
 fun LoginScreen(
-
+    onNewGameClick: () -> Unit = {},
+    onHistoryClick: () -> Unit = {},
 ) {
-    LoginScreenContent()
+    LoginScreenContent(
+        onNewGameClick = {
+            onNewGameClick()
+        },
+        onHistoryClick = {
+            onHistoryClick()
+        }
+    )
 }
 
 @Composable
-fun LoginScreenContent() {
+fun LoginScreenContent(
+    onNewGameClick: () -> Unit = {},
+    onHistoryClick: () -> Unit = {},
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -52,7 +63,14 @@ fun LoginScreenContent() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceEvenly
         ) {
-            ButtonsWithText()
+            ButtonsWithText(
+                onNewGameClick = {
+                    onNewGameClick()
+                },
+                onHistoryClick = {
+                    onHistoryClick()
+                }
+            )
         }
     }
 }
@@ -71,7 +89,10 @@ fun TextWithTimer() {
 }
 
 @Composable
-fun ButtonsWithText() {
+fun ButtonsWithText(
+    onNewGameClick: () -> Unit = {},
+    onHistoryClick: () -> Unit = {},
+) {
     Column(
         modifier = Modifier
             .fillMaxHeight()
@@ -88,11 +109,11 @@ fun ButtonsWithText() {
                 modifier = Modifier
                     .fillMaxWidth(),
                 onClick = {
-
+                    onNewGameClick()
                 }
             ) {
                 Text(
-                    text = stringResource(id = R.string.login_screen_history),
+                    text = stringResource(id = R.string.login_screen_new_game),
                     color = MaterialTheme.colorScheme.onBackground,
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier
@@ -104,11 +125,11 @@ fun ButtonsWithText() {
                 modifier = Modifier
                     .fillMaxWidth(),
                 onClick = {
-
+                    onHistoryClick()
                 }
             ) {
                 Text(
-                    text = stringResource(id = R.string.login_screen_new_game),
+                    text = stringResource(id = R.string.login_screen_history),
                     color = MaterialTheme.colorScheme.onBackground,
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier

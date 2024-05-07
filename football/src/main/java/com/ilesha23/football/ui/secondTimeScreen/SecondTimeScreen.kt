@@ -27,12 +27,20 @@ import com.ilesha23.football.ui.common.CustomButton
 import com.ilesha23.football.ui.common.Timer
 
 @Composable
-fun SecondTimeScreen() {
-    SecondTimeScreenContent()
+fun SecondTimeScreen(
+    onFinishClick: () -> Unit = {}
+) {
+    SecondTimeScreenContent(
+        onFinishClick = {
+            onFinishClick()
+        }
+    )
 }
 
 @Composable
-fun SecondTimeScreenContent() {
+fun SecondTimeScreenContent(
+    onFinishClick: () -> Unit = {}
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -114,7 +122,10 @@ fun SecondTimeScreenContent() {
         ) {
             CustomButton(
                 modifier = Modifier
-                    .fillMaxWidth()
+                    .fillMaxWidth(),
+                onClick = {
+                    onFinishClick()
+                }
             ) {
                 Text(
                     text = stringResource(id = R.string.time_screen_final),

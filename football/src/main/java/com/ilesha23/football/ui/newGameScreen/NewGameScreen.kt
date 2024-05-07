@@ -19,12 +19,25 @@ import com.ilesha23.football.R
 import com.ilesha23.football.ui.common.CustomButton
 
 @Composable
-fun NewGameScreen() {
-    NewGameScreenContent()
+fun NewGameScreen(
+    onMainMenuClick: () -> Unit = {},
+    onStartClick: () -> Unit = {},
+) {
+    NewGameScreenContent(
+        onMainMenuClick = {
+            onMainMenuClick()
+        },
+        onStartClick = {
+            onStartClick()
+        }
+    )
 }
 
 @Composable
-fun NewGameScreenContent() {
+fun NewGameScreenContent(
+    onMainMenuClick: () -> Unit = {},
+    onStartClick: () -> Unit = {},
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -41,7 +54,7 @@ fun NewGameScreenContent() {
         ) {
             CustomButton(
                 onClick = {
-
+                    onMainMenuClick()
                 }
             ) {
                 Text(
@@ -137,7 +150,7 @@ fun NewGameScreenContent() {
                     Color(0xFF3B38EE),
                 ),
                 onClick = {
-
+                    onStartClick()
                 }
             ) {
                 Text(

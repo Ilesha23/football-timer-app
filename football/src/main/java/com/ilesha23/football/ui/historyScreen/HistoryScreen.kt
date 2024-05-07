@@ -26,12 +26,25 @@ import com.ilesha23.football.R
 import com.ilesha23.football.ui.common.CustomButton
 
 @Composable
-fun HistoryScreen() {
-    HistoryScreenContent()
+fun HistoryScreen(
+    onBackClick: () -> Unit = {},
+    onMainMenuClick: () -> Unit = {},
+) {
+    HistoryScreenContent(
+        onBackClick = {
+            onBackClick()
+        },
+        onMainMenuClick = {
+            onMainMenuClick()
+        }
+    )
 }
 
 @Composable
-fun HistoryScreenContent() {
+fun HistoryScreenContent(
+    onBackClick: () -> Unit = {},
+    onMainMenuClick: () -> Unit = {},
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -48,7 +61,7 @@ fun HistoryScreenContent() {
         ) {
             CustomButton(
                 onClick = {
-
+                    onMainMenuClick()
                 }
             ) {
                 Text(
@@ -86,7 +99,7 @@ fun HistoryScreenContent() {
                 modifier = Modifier
                     .fillMaxWidth(),
                 onClick = {
-
+                    onBackClick()
                 }
             ) {
                 Text(
