@@ -25,9 +25,11 @@ import androidx.compose.ui.unit.dp
 import com.ilesha23.football.R
 import com.ilesha23.football.ui.common.CustomButton
 import com.ilesha23.football.ui.common.Timer
+import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
 fun FirstTimeScreen(
+    viewModel: FirstTimeViewModel = hiltViewModel(),
     onBreakClick: () -> Unit = {}
 ) {
     FirstTimeScreenContent(

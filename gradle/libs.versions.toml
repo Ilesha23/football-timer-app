@@ -12,7 +12,7 @@ activityCompose = "1.9.0"
 composeBom = "2024.05.00"
 room = "2.6.1"
 roomKtx = "2.6.1"
-composeNav = "2.7.7"
+composeNav = "1.2.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -35,6 +35,7 @@ androidx-room-runtime = { group = "androidx.room", name = "room-runtime", versio
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 dagger-hilt-android = { module = "com.google.dagger:hilt-android", name = "hilt-common", version.ref = "hilt" }
 dagger-hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", name = "hilt-compiler", version.ref = "hilt" }
+hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "composeNav" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -79,7 +79,7 @@ fun LoginScreenContent(
 fun TextWithTimer() {
     Text(
         text = stringResource(id = R.string.login_screen_kickoff_timer).uppercase(),
-        style = MaterialTheme.typography.bodyLarge,
+        style = MaterialTheme.typography.displayLarge,
         color = MaterialTheme.colorScheme.onBackground
     )
     Timer(

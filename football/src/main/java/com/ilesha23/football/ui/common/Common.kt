@@ -102,7 +102,7 @@ fun Timer(
                 ) {
                     Text(
                         text = "00",
-                        style = MaterialTheme.typography.bodyLarge,
+                        style = MaterialTheme.typography.displayLarge,
                         color = MaterialTheme.colorScheme.onBackground
                     )
                 }
@@ -122,7 +122,7 @@ fun Timer(
             ) {
                 Text(
                     text = stringResource(id = R.string.login_screen_time).uppercase(),
-                    style = MaterialTheme.typography.labelLarge,
+                    style = MaterialTheme.typography.displayMedium,
                     color = MaterialTheme.colorScheme.onBackground
                 )
                 Box(
@@ -134,7 +134,7 @@ fun Timer(
                 ) {
                     Text(
                         text = "00:00",
-                        style = MaterialTheme.typography.labelLarge,
+                        style = MaterialTheme.typography.displayMedium,
                         color = MaterialTheme.colorScheme.onBackground
                     )
                 }
@@ -177,7 +177,7 @@ fun Timer(
                 ) {
                     Text(
                         text = "00",
-                        style = MaterialTheme.typography.bodyLarge,
+                        style = MaterialTheme.typography.displayLarge,
                         color = MaterialTheme.colorScheme.onBackground
                     )
                 }
