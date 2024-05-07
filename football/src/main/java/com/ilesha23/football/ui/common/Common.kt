@@ -29,12 +29,23 @@ import com.ilesha23.football.R
 
 @Composable
 fun CustomButton(
+    modifier: Modifier = Modifier,
+    colors: List<Color> = listOf(
+        Color(0xFFF9AC67),
+        Color(0xFFCA762D),
+        Color(0xFFF59D50),
+        Color(0xFFF59D50),
+        Color(0xFFDC7D25),
+        Color(0xFFFFAB5C),
+        Color(0x20FFFFFF),
+        Color(0xFFEE8C38)
+    ),
     onClick: () -> Unit = {},
     content: @Composable () -> Unit = {},
 ) {
     Background(
-        modifier = Modifier
-            .fillMaxWidth(),
+        modifier = modifier,
+        colors = colors,
         onClick = {
             onClick()
         }
@@ -73,7 +84,7 @@ fun Timer() {
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = stringResource(id = R.string.home).uppercase(),
+                        text = stringResource(id = R.string.login_screen_home).uppercase(),
                         style = MaterialTheme.typography.labelMedium,
                         color = MaterialTheme.colorScheme.onBackground,
                         modifier = Modifier
@@ -109,7 +120,7 @@ fun Timer() {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = stringResource(id = R.string.time).uppercase(),
+                    text = stringResource(id = R.string.login_screen_time).uppercase(),
                     style = MaterialTheme.typography.labelLarge,
                     color = MaterialTheme.colorScheme.onBackground
                 )
@@ -148,7 +159,7 @@ fun Timer() {
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = stringResource(id = R.string.home).uppercase(),
+                        text = stringResource(id = R.string.login_screen_home).uppercase(),
                         style = MaterialTheme.typography.labelMedium,
                         color = MaterialTheme.colorScheme.onBackground,
                         modifier = Modifier
@@ -177,6 +188,16 @@ fun Timer() {
 @Composable
 fun Background(
     modifier: Modifier = Modifier,
+    colors: List<Color> = listOf(
+        Color(0xFFF9AC67),
+        Color(0xFFCA762D),
+        Color(0xFFF59D50),
+        Color(0xFFF59D50),
+        Color(0xFFDC7D25),
+        Color(0xFFFFAB5C),
+        Color(0x20FFFFFF),
+        Color(0xFFEE8C38)
+    ),
     onClick: () -> Unit = {},
     content: @Composable () -> Unit,
 ) {
@@ -195,8 +216,8 @@ fun Background(
                 drawRoundRect(
                     brush = Brush.verticalGradient(
                         colors = listOf(
-                            Color(0xFFF9AC67),
-                            Color(0xFFCA762D)
+                            colors[0],
+                            colors[1]
                         ),
                         startY = 0f,
                         endY = size.height
@@ -213,8 +234,8 @@ fun Background(
                 drawRoundRect(
                     brush = Brush.verticalGradient(
                         colors = listOf(
-                            Color(0xFFF59D50),
-                            Color(0xFFF59D50)
+                            colors[2],
+                            colors[3]
                         ),
                         startY = 0f,
                         endY = size.height
@@ -231,8 +252,8 @@ fun Background(
                 drawRoundRect(
                     brush = Brush.verticalGradient(
                         colors = listOf(
-                            Color(0xFFDC7D25),
-                            Color(0xFFFFAB5C)
+                            colors[4],
+                            colors[5]
                         ),
                         startY = 0f,
                         endY = size.height
@@ -246,8 +267,8 @@ fun Background(
                 drawRoundRect(
                     brush = Brush.radialGradient(
                         colors = listOf(
-                            Color(0x20FFFFFF),
-                            Color(0xFFEE8C38),
+                            colors[6],
+                            colors[7],
                         ),
                         center = Offset(size.width / 2, size.height * 2),
                         radius = size.width

@@ -60,7 +60,7 @@ fun LoginScreenContent() {
 @Composable
 fun TextWithTimer() {
     Text(
-        text = stringResource(id = R.string.kickoff_timer).uppercase(),
+        text = stringResource(id = R.string.login_screen_kickoff_timer).uppercase(),
         style = MaterialTheme.typography.bodyLarge,
         color = MaterialTheme.colorScheme.onBackground
     )
@@ -82,12 +82,14 @@ fun ButtonsWithText() {
                 .weight(0.9f)
         ) {
             CustomButton(
+                modifier = Modifier
+                    .fillMaxWidth(),
                 onClick = {
 
                 }
             ) {
                 Text(
-                    text = stringResource(id = R.string.history),
+                    text = stringResource(id = R.string.login_screen_history),
                     color = MaterialTheme.colorScheme.onBackground,
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier
@@ -96,12 +98,14 @@ fun ButtonsWithText() {
             }
             Spacer(modifier = Modifier.fillMaxHeight(0.15f))
             CustomButton(
+                modifier = Modifier
+                    .fillMaxWidth(),
                 onClick = {
 
                 }
             ) {
                 Text(
-                    text = stringResource(id = R.string.new_game),
+                    text = stringResource(id = R.string.login_screen_new_game),
                     color = MaterialTheme.colorScheme.onBackground,
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier
@@ -114,7 +118,7 @@ fun ButtonsWithText() {
                 .weight(0.2f)
         ) {
             Text(
-                text = stringResource(id = R.string.terms),
+                text = stringResource(id = R.string.login_screen_terms),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurface,
                 textDecoration = TextDecoration.Underline,

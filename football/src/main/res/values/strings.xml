@@ -2,12 +2,20 @@
     <string name="app_name">Football</string>
 
     <!-- Login Screen -->
-    <string name="kickoff_timer">Kickoff timer</string>
-    <string name="home">home</string>
-    <string name="away">away</string>
-    <string name="time">time</string>
-    <string name="new_game">Новая игра</string>
-    <string name="history">История</string>
-    <string name="terms">Пользовательское соглашение</string>
+    <string name="login_screen_kickoff_timer">Kickoff timer</string>
+    <string name="login_screen_home">home</string>
+    <string name="login_screen_away">away</string>
+    <string name="login_screen_time">time</string>
+    <string name="login_screen_new_game">Новая игра</string>
+    <string name="login_screen_history">История</string>
+    <string name="login_screen_terms">Пользовательское соглашение</string>
+
+    <!-- New game screen -->
+    <string name="new_game_screen_main_menu">Главное меню</string>
+    <string name="new_game_screen_date">дата</string>
+    <string name="new_game_screen_time">время</string>
+    <string name="new_game_screen_owners">хозяева</string>
+    <string name="new_game_screen_guests">гости</string>
+    <string name="new_game_screen_start">Старт</string>
 
 </resources>

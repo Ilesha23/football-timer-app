@@ -50,6 +50,13 @@ val Typography = Typography(
         lineHeight = 29.sp,
         letterSpacing = 0.5.sp
     ),
+    labelSmall = TextStyle(
+        fontFamily = montserratFontFamily,
+        fontWeight = FontWeight.Normal,
+        fontSize = 22.sp,
+        lineHeight = 29.sp,
+        letterSpacing = 0.5.sp
+    ),
 //    titleLarge = TextStyle(
 //        fontFamily = montserratFontFamily,
 //        fontWeight = FontWeight.Normal,
