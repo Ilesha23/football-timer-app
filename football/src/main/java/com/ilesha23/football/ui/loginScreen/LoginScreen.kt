@@ -64,7 +64,10 @@ fun TextWithTimer() {
         style = MaterialTheme.typography.bodyLarge,
         color = MaterialTheme.colorScheme.onBackground
     )
-    Timer()
+    Timer(
+        modifier = Modifier
+            .fillMaxHeight(0.5f)
+    )
 }
 
 @Composable

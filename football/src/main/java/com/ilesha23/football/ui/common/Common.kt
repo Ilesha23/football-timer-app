@@ -55,15 +55,16 @@ fun CustomButton(
 }
 
 @Composable
-fun Timer() {
+fun Timer(
+    modifier: Modifier = Modifier
+) {
     Background(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth(0.9f),
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .fillMaxHeight(0.5f)
                 .padding(5.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically

@@ -21,4 +21,10 @@
     <!-- History screen -->
     <string name="history_screen_back">Назад</string>
 
+    <!-- Time screens -->
+    <string name="time_screen_first">1 тайм</string>
+    <string name="time_screen_second">2 тайм</string>
+    <string name="time_screen_break">Перерыв</string>
+    <string name="time_screen_final">Финал</string>
+
 </resources>
