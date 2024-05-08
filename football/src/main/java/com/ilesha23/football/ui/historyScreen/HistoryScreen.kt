@@ -1,7 +1,6 @@
 package com.ilesha23.football.ui.historyScreen
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,7 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
@@ -67,7 +66,7 @@ fun HistoryScreenContent(
                 .weight(0.1f)
                 .fillMaxWidth()
                 .background(MaterialTheme.colorScheme.tertiary)
-                .padding(start = 10.dp),
+                .padding(start = dimensionResource(id = R.dimen.history_screen_button_text_padding)),
             verticalArrangement = Arrangement.Center
         ) {
             CustomButton(
@@ -80,7 +79,7 @@ fun HistoryScreenContent(
                     color = MaterialTheme.colorScheme.onBackground,
                     style = MaterialTheme.typography.labelSmall,
                     modifier = Modifier
-                        .padding(horizontal = 10.dp),
+                        .padding(horizontal = dimensionResource(id = R.dimen.history_screen_button_text_padding)),
                 )
             }
         }
@@ -92,10 +91,9 @@ fun HistoryScreenContent(
                 .weight(0.8f)
         ) {
             item {
-                Spacer(modifier = Modifier.height(30.dp))
+                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.history_screen_spacer_height)))
             }
             items(list) {
-                val date = Date(it.date)
                 val dateFormat = SimpleDateFormat("dd.MM.yyy", Locale.getDefault())
                 MatchItem(
                     owners = it.owners,
@@ -104,7 +102,7 @@ fun HistoryScreenContent(
                     date = dateFormat.format(it.date),
                     time = it.time
                 )
-                Spacer(modifier = Modifier.height(30.dp))
+                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.history_screen_spacer_height)))
             }
         }
 
@@ -126,7 +124,7 @@ fun HistoryScreenContent(
                     color = MaterialTheme.colorScheme.onBackground,
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier
-                        .padding(vertical = 8.dp),
+                        .padding(vertical = dimensionResource(id = R.dimen.history_screen_button_text_padding)),
                     textDecoration = TextDecoration.Underline
                 )
             }

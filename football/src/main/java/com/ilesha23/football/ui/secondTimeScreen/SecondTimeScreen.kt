@@ -21,9 +21,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.ilesha23.football.R
 import com.ilesha23.football.ui.common.CustomButton
@@ -89,7 +89,7 @@ fun SecondTimeScreenContent(
                 color = MaterialTheme.colorScheme.onBackground,
                 style = MaterialTheme.typography.displayLarge
             )
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.fillMaxHeight(0.05f))
             Timer(
                 ownersScore = ownersScore,
                 guestsScore = guestsScore,
@@ -98,7 +98,7 @@ fun SecondTimeScreenContent(
                     .fillMaxHeight(0.8f)
             )
         }
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.fillMaxSize(0.03f))
         Row(
             modifier = Modifier
                 .weight(1f)
@@ -110,8 +110,8 @@ fun SecondTimeScreenContent(
                     onOwnersPlusClick()
                 },
                 modifier = Modifier
-                    .height(90.dp)
-                    .width(70.dp)
+                    .height(dimensionResource(id = R.dimen.first_time_screen_plus_button_height))
+                    .width(dimensionResource(id = R.dimen.first_time_screen_plus_button_width))
             ) {
                 Icon(
                     painter = painterResource(id = R.drawable.plus),
@@ -124,8 +124,8 @@ fun SecondTimeScreenContent(
                     onGuestsPlusClick()
                 },
                 modifier = Modifier
-                    .height(90.dp)
-                    .width(70.dp)
+                    .height(dimensionResource(id = R.dimen.first_time_screen_plus_button_height))
+                    .width(dimensionResource(id = R.dimen.first_time_screen_plus_button_width))
             ) {
                 Icon(
                     painter = painterResource(id = R.drawable.plus),
@@ -145,8 +145,8 @@ fun SecondTimeScreenContent(
                     onOwnersMinusClick()
                 },
                 modifier = Modifier
-                    .height(90.dp)
-                    .width(70.dp)
+                    .height(dimensionResource(id = R.dimen.first_time_screen_plus_button_height))
+                    .width(dimensionResource(id = R.dimen.first_time_screen_plus_button_width))
             ) {
                 Icon(
                     painter = painterResource(id = R.drawable.minus),
@@ -159,8 +159,8 @@ fun SecondTimeScreenContent(
                     onGuestsMinusClick()
                 },
                 modifier = Modifier
-                    .height(90.dp)
-                    .width(70.dp)
+                    .height(dimensionResource(id = R.dimen.first_time_screen_plus_button_height))
+                    .width(dimensionResource(id = R.dimen.first_time_screen_plus_button_width))
             ) {
                 Icon(
                     painter = painterResource(id = R.drawable.minus),
@@ -188,7 +188,7 @@ fun SecondTimeScreenContent(
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onBackground,
                     modifier = Modifier
-                        .padding(vertical = 10.dp)
+                        .padding(vertical = dimensionResource(id = R.dimen.first_time_screen_button_padding))
                 )
             }
         }

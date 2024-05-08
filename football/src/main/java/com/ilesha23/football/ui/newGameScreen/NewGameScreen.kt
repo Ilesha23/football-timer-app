@@ -34,6 +34,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextDecoration
@@ -169,7 +170,7 @@ fun NewGameScreenContent(
                 .weight(0.1f)
                 .fillMaxWidth()
                 .background(MaterialTheme.colorScheme.tertiary)
-                .padding(start = 10.dp),
+                .padding(start = dimensionResource(id = R.dimen.new_game_screen_top_button_padding_start)),
             verticalArrangement = Arrangement.Center
         ) {
             CustomButton(
@@ -182,7 +183,7 @@ fun NewGameScreenContent(
                     color = MaterialTheme.colorScheme.onBackground,
                     style = MaterialTheme.typography.labelSmall,
                     modifier = Modifier
-                        .padding(horizontal = 10.dp),
+                        .padding(horizontal = dimensionResource(id = R.dimen.new_game_screen_top_button_inner_padding_horizontal)),
                 )
             }
         }
@@ -204,7 +205,7 @@ fun NewGameScreenContent(
                     color = MaterialTheme.colorScheme.onBackground,
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier
-                        .padding(vertical = 15.dp),
+                        .padding(vertical = dimensionResource(id = R.dimen.new_game_screen_button_padding)),
                     textDecoration = TextDecoration.Underline
                 )
             }
@@ -220,7 +221,7 @@ fun NewGameScreenContent(
                     color = MaterialTheme.colorScheme.onBackground,
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier
-                        .padding(vertical = 15.dp),
+                        .padding(vertical = dimensionResource(id = R.dimen.new_game_screen_button_padding)),
                     textDecoration = TextDecoration.Underline
                 )
             }
@@ -236,7 +237,7 @@ fun NewGameScreenContent(
                     color = MaterialTheme.colorScheme.onBackground,
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier
-                        .padding(vertical = 15.dp),
+                        .padding(vertical = dimensionResource(id = R.dimen.new_game_screen_button_padding)),
                     textDecoration = TextDecoration.Underline
                 )
             }
@@ -252,7 +253,7 @@ fun NewGameScreenContent(
                     color = MaterialTheme.colorScheme.onBackground,
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier
-                        .padding(vertical = 15.dp),
+                        .padding(vertical = dimensionResource(id = R.dimen.new_game_screen_button_padding)),
                     textDecoration = TextDecoration.Underline
                 )
             }
@@ -278,7 +279,7 @@ fun NewGameScreenContent(
                     color = MaterialTheme.colorScheme.onBackground,
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier
-                        .padding(vertical = 15.dp)
+                        .padding(vertical = dimensionResource(id = R.dimen.new_game_screen_button_padding))
                 )
             }
         }

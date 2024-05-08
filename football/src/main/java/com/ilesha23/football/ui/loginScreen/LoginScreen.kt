@@ -14,10 +14,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.PreviewScreenSizes
-import androidx.compose.ui.unit.dp
 import com.ilesha23.football.R
 import com.ilesha23.football.ui.common.CustomButton
 import com.ilesha23.football.ui.common.Timer
@@ -117,7 +117,7 @@ fun ButtonsWithText(
                     color = MaterialTheme.colorScheme.onBackground,
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier
-                        .padding(vertical = 8.dp)
+                        .padding(vertical = dimensionResource(id = R.dimen.login_screen_button_text_padding))
                 )
             }
             Spacer(modifier = Modifier.fillMaxHeight(0.15f))
@@ -133,7 +133,7 @@ fun ButtonsWithText(
                     color = MaterialTheme.colorScheme.onBackground,
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier
-                        .padding(vertical = 8.dp)
+                        .padding(vertical = dimensionResource(id = R.dimen.login_screen_button_text_padding))
                 )
             }
         }

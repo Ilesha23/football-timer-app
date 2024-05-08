@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Login screen -->
+    <dimen name="login_screen_button_text_padding">8dp</dimen>
+
+    <!-- History screen -->
+    <dimen name="history_screen_button_text_padding">10dp</dimen>
+    <dimen name="history_screen_spacer_height">30dp</dimen>
+
+    <!-- New game screen -->
+    <dimen name="new_game_screen_top_button_padding_start">10dp</dimen>
+    <dimen name="new_game_screen_top_button_inner_padding_horizontal">10dp</dimen>
+    <dimen name="new_game_screen_button_padding">15dp</dimen>
+
+    <!-- First and Second time screen -->
+    <dimen name="first_time_screen_plus_button_height">90dp</dimen>
+    <dimen name="first_time_screen_plus_button_width">70dp</dimen>
+    <dimen name="first_time_screen_button_padding">10dp</dimen>
+
+</resources>
