@@ -56,8 +56,10 @@ fun CustomButton(
 
 @Composable
 fun Timer(
+    modifier: Modifier = Modifier,
+    ownersScore: Int = 0,
+    guestsScore: Int = 0,
     currentTime: String = "00:00",
-    modifier: Modifier = Modifier
 ) {
     Background(
         modifier = modifier
@@ -102,7 +104,7 @@ fun Timer(
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = "00",
+                        text = ownersScore.toString(),
                         style = MaterialTheme.typography.displayLarge,
                         color = MaterialTheme.colorScheme.onBackground
                     )
@@ -161,7 +163,7 @@ fun Timer(
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = stringResource(id = R.string.login_screen_home).uppercase(),
+                        text = stringResource(id = R.string.login_screen_away).uppercase(),
                         style = MaterialTheme.typography.labelMedium,
                         color = MaterialTheme.colorScheme.onBackground,
                         modifier = Modifier
@@ -177,7 +179,7 @@ fun Timer(
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = "00",
+                        text = guestsScore.toString(),
                         style = MaterialTheme.typography.displayLarge,
                         color = MaterialTheme.colorScheme.onBackground
                     )

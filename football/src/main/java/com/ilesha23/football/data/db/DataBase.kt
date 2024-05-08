@@ -6,8 +6,9 @@ import com.ilesha23.football.data.model.MatchItem
 
 @Database(
     entities = [MatchItem::class],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
-abstract class AppDataBase : RoomDatabase() {
+abstract class DataBase : RoomDatabase() {
     abstract fun matchDao(): MatchDao
 }

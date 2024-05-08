@@ -24,10 +24,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.ilesha23.football.R
 import com.ilesha23.football.ui.common.CustomButton
 import com.ilesha23.football.ui.common.Timer
-import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
 fun FirstTimeScreen(
@@ -35,19 +35,42 @@ fun FirstTimeScreen(
     onBreakClick: () -> Unit = {}
 ) {
     val elapsedTime by viewModel.elapsedTime.collectAsState()
+    val ownersScore by viewModel.ownersScore.collectAsState()
+    val guestsScore by viewModel.guestsScore.collectAsState()
+
     FirstTimeScreenContent(
+        ownersScore = ownersScore,
+        guestsScore = guestsScore,
         elapsedTime = elapsedTime,
         onBreakClick = {
             viewModel.stop()
             onBreakClick()
-        }
+        },
+        onOwnersPlusClick = {
+            viewModel.addOwners()
+        },
+        onOwnersMinusClick = {
+            viewModel.subtractOwners()
+        },
+        onGuestsPlusClick = {
+            viewModel.addGuests()
+        },
+        onGuestsMinusClick = {
+            viewModel.subtractGuests()
+        },
     )
 }
 
 @Composable
 fun FirstTimeScreenContent(
+    ownersScore: Int = 0,
+    guestsScore: Int = 0,
     elapsedTime: String,
     onBreakClick: () -> Unit = {},
+    onOwnersPlusClick: () -> Unit = {},
+    onOwnersMinusClick: () -> Unit = {},
+    onGuestsPlusClick: () -> Unit = {},
+    onGuestsMinusClick: () -> Unit = {},
 ) {
     Column(
         modifier = Modifier
@@ -57,16 +80,19 @@ fun FirstTimeScreenContent(
     ) {
         Column(
             modifier = Modifier
-                .weight(1.1f),
+                .weight(1.65f),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Bottom
         ) {
             Text(
                 text = stringResource(id = R.string.time_screen_first),
-                color = MaterialTheme.colorScheme.onBackground
+                color = MaterialTheme.colorScheme.onBackground,
+                style = MaterialTheme.typography.displayLarge
             )
             Spacer(modifier = Modifier.height(10.dp))
             Timer(
+                ownersScore = ownersScore,
+                guestsScore = guestsScore,
                 currentTime = elapsedTime,
                 modifier = Modifier
                     .fillMaxHeight(0.8f)
@@ -80,7 +106,9 @@ fun FirstTimeScreenContent(
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             IconButton(
-                onClick = {},
+                onClick = {
+                    onOwnersPlusClick()
+                },
                 modifier = Modifier
                     .height(90.dp)
                     .width(70.dp)
@@ -92,7 +120,9 @@ fun FirstTimeScreenContent(
                 )
             }
             IconButton(
-                onClick = {},
+                onClick = {
+                    onGuestsPlusClick()
+                },
                 modifier = Modifier
                     .height(90.dp)
                     .width(70.dp)
@@ -104,12 +134,47 @@ fun FirstTimeScreenContent(
                 )
             }
         }
+        Row(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxWidth(0.8f),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            IconButton(
+                onClick = {
+                    onOwnersMinusClick()
+                },
+                modifier = Modifier
+                    .height(90.dp)
+                    .width(70.dp)
+            ) {
+                Icon(
+                    painter = painterResource(id = R.drawable.minus),
+                    contentDescription = null,
+                    tint = Color.White
+                )
+            }
+            IconButton(
+                onClick = {
+                    onGuestsMinusClick()
+                },
+                modifier = Modifier
+                    .height(90.dp)
+                    .width(70.dp)
+            ) {
+                Icon(
+                    painter = painterResource(id = R.drawable.minus),
+                    contentDescription = null,
+                    tint = Color.White
+                )
+            }
+        }
         Column(
             modifier = Modifier
                 .weight(1f)
                 .fillMaxWidth(0.8f),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Top
         ) {
             CustomButton(
                 modifier = Modifier

@@ -1,4 +1,4 @@
-package com.ilesha23.football.ui.firstTimeScreen
+package com.ilesha23.football.ui.secondTimeScreen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class FirstTimeViewModel @Inject constructor(
+class SecondTimeViewModel @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
 
@@ -81,12 +81,13 @@ class FirstTimeViewModel @Inject constructor(
     }
 
 
-    fun stop() {
+    fun finish() {
         stopStopwatch()
         repository.currentMatch.apply {
-            this.ownersScore = this@FirstTimeViewModel.ownersScore.value
-            this.guestsScore = this@FirstTimeViewModel.guestsScore.value
+            this.ownersScore += this@SecondTimeViewModel.ownersScore.value
+            this.guestsScore += this@SecondTimeViewModel.guestsScore.value
         }
+        // todo add to db
     }
 
     private fun Long.toMinutesSeconds(): String {

@@ -2,12 +2,14 @@ package com.ilesha23.football.ui.newGameScreen
 
 import androidx.lifecycle.ViewModel
 import com.ilesha23.football.data.Repository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
+@HiltViewModel
 class NewGameViewModel @Inject constructor(
-//    private val repository: Repository
+    private val repository: Repository
 ) : ViewModel() {
 
     val date = MutableStateFlow(System.currentTimeMillis())
@@ -16,12 +18,12 @@ class NewGameViewModel @Inject constructor(
     val guests = MutableStateFlow("guests")
 
     fun start() {
-//        repository.currentMatch.apply {
-//            this.date = this@NewGameViewModel.date.value
-//            this.time = this@NewGameViewModel.time.value
-//            this.owners = this@NewGameViewModel.owners.value
-//            this.guests = this@NewGameViewModel.guests.value
-//        }
+        repository.currentMatch.apply {
+            this.date = this@NewGameViewModel.date.value
+            this.time = this@NewGameViewModel.time.value
+            this.owners = this@NewGameViewModel.owners.value
+            this.guests = this@NewGameViewModel.guests.value
+        }
     }
 
     fun updateOwners(s: String) {

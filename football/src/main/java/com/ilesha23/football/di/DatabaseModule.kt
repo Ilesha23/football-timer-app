@@ -2,7 +2,7 @@ package com.ilesha23.football.di
 
 import android.content.Context
 import androidx.room.Room
-import com.ilesha23.football.data.db.AppDataBase
+import com.ilesha23.football.data.db.DataBase
 import com.ilesha23.football.data.db.MatchDao
 import dagger.Module
 import dagger.Provides
@@ -13,21 +13,21 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object RoomModule {
+object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideAppDataBase(@ApplicationContext context: Context): AppDataBase {
+    fun provideDatabase(@ApplicationContext context: Context): DataBase {
         return Room.databaseBuilder(
             context,
-            AppDataBase::class.java,
-            "database"
+            DataBase::class.java,
+            "db"
         ).build()
     }
 
     @Provides
     @Singleton
-    fun provideDao(db: AppDataBase): MatchDao {
+    fun provideDao(db: DataBase): MatchDao {
         return db.matchDao()
     }
 

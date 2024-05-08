@@ -16,29 +16,60 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.ilesha23.football.R
 import com.ilesha23.football.ui.common.CustomButton
 import com.ilesha23.football.ui.common.Timer
 
 @Composable
 fun SecondTimeScreen(
+    viewModel: SecondTimeViewModel = hiltViewModel(),
     onFinishClick: () -> Unit = {}
 ) {
+    val elapsedTime by viewModel.elapsedTime.collectAsState()
+    val ownersScore by viewModel.ownersScore.collectAsState()
+    val guestsScore by viewModel.guestsScore.collectAsState()
+
     SecondTimeScreenContent(
+        ownersScore = ownersScore,
+        guestsScore = guestsScore,
+        elapsedTime = elapsedTime,
         onFinishClick = {
+            viewModel.finish()
             onFinishClick()
-        }
+        },
+        onOwnersPlusClick = {
+            viewModel.addOwners()
+        },
+        onOwnersMinusClick = {
+            viewModel.subtractOwners()
+        },
+        onGuestsPlusClick = {
+            viewModel.addGuests()
+        },
+        onGuestsMinusClick = {
+            viewModel.subtractGuests()
+        },
     )
 }
 
 @Composable
 fun SecondTimeScreenContent(
+    ownersScore: Int = 0,
+    guestsScore: Int = 0,
+    elapsedTime: String,
+    onOwnersPlusClick: () -> Unit = {},
+    onOwnersMinusClick: () -> Unit = {},
+    onGuestsPlusClick: () -> Unit = {},
+    onGuestsMinusClick: () -> Unit = {},
     onFinishClick: () -> Unit = {}
 ) {
     Column(
@@ -55,10 +86,14 @@ fun SecondTimeScreenContent(
         ) {
             Text(
                 text = stringResource(id = R.string.time_screen_second),
-                color = MaterialTheme.colorScheme.onBackground
+                color = MaterialTheme.colorScheme.onBackground,
+                style = MaterialTheme.typography.displayLarge
             )
             Spacer(modifier = Modifier.height(10.dp))
             Timer(
+                ownersScore = ownersScore,
+                guestsScore = guestsScore,
+                currentTime = elapsedTime,
                 modifier = Modifier
                     .fillMaxHeight(0.8f)
             )
@@ -71,7 +106,9 @@ fun SecondTimeScreenContent(
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             IconButton(
-                onClick = {},
+                onClick = {
+                    onOwnersPlusClick()
+                },
                 modifier = Modifier
                     .height(90.dp)
                     .width(70.dp)
@@ -83,7 +120,9 @@ fun SecondTimeScreenContent(
                 )
             }
             IconButton(
-                onClick = {},
+                onClick = {
+                    onGuestsPlusClick()
+                },
                 modifier = Modifier
                     .height(90.dp)
                     .width(70.dp)
@@ -98,10 +137,27 @@ fun SecondTimeScreenContent(
         Row(
             modifier = Modifier
                 .weight(1f)
-                .fillMaxWidth(0.8f)
+                .fillMaxWidth(0.8f),
+            horizontalArrangement = Arrangement.SpaceBetween
         ) {
             IconButton(
-                onClick = {},
+                onClick = {
+                    onOwnersMinusClick()
+                },
+                modifier = Modifier
+                    .height(90.dp)
+                    .width(70.dp)
+            ) {
+                Icon(
+                    painter = painterResource(id = R.drawable.minus),
+                    contentDescription = null,
+                    tint = Color.White
+                )
+            }
+            IconButton(
+                onClick = {
+                    onGuestsMinusClick()
+                },
                 modifier = Modifier
                     .height(90.dp)
                     .width(70.dp)
