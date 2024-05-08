@@ -20,5 +20,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "mini-projects"
-include(":app")
 include(":football")
