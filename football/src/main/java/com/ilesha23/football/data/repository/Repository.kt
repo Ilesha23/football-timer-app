@@ -1,4 +1,4 @@
-package com.ilesha23.football.data
+package com.ilesha23.football.data.repository
 
 import com.ilesha23.football.data.model.MatchItem
 

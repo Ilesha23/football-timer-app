@@ -2,7 +2,7 @@ package com.ilesha23.football.ui.firstTimeScreen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ilesha23.football.data.Repository
+import com.ilesha23.football.data.repository.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow

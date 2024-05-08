@@ -16,21 +16,31 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.ilesha23.football.R
+import com.ilesha23.football.data.model.MatchItem
 import com.ilesha23.football.ui.common.CustomButton
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 @Composable
 fun HistoryScreen(
+    viewModel: HistoryViewModel = hiltViewModel(),
     onBackClick: () -> Unit = {},
     onMainMenuClick: () -> Unit = {},
 ) {
+    val list = viewModel.historyList.collectAsState().value
+
     HistoryScreenContent(
+        list = list,
         onBackClick = {
             onBackClick()
         },
@@ -42,6 +52,7 @@ fun HistoryScreen(
 
 @Composable
 fun HistoryScreenContent(
+    list: List<MatchItem> = emptyList(),
     onBackClick: () -> Unit = {},
     onMainMenuClick: () -> Unit = {},
 ) {
@@ -83,8 +94,16 @@ fun HistoryScreenContent(
             item {
                 Spacer(modifier = Modifier.height(30.dp))
             }
-            items(List(10) { it }) {
-                MatchItem()
+            items(list) {
+                val date = Date(it.date)
+                val dateFormat = SimpleDateFormat("dd.MM.yyy", Locale.getDefault())
+                MatchItem(
+                    owners = it.owners,
+                    guests = it.guests,
+                    score = "${it.ownersScore}:${it.guestsScore}",
+                    date = dateFormat.format(it.date),
+                    time = it.time
+                )
                 Spacer(modifier = Modifier.height(30.dp))
             }
         }

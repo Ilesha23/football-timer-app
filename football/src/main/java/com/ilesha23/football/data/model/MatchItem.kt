@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class MatchItem(
-    @PrimaryKey var id: Int = 0,
+    @PrimaryKey(autoGenerate = true) var id: Int = 0,
     var date: Long = 0,
     var time: String = "00:00",
     var owners: String = "owners",

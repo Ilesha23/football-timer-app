@@ -1,7 +1,7 @@
 package com.ilesha23.football.di
 
-import com.ilesha23.football.data.Repository
-import com.ilesha23.football.data.RepositoryImpl
+import com.ilesha23.football.data.repository.Repository
+import com.ilesha23.football.data.repository.RepositoryImpl
 import com.ilesha23.football.data.db.MatchDao
 import dagger.Module
 import dagger.Provides

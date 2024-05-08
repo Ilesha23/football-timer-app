@@ -1,4 +1,4 @@
-package com.ilesha23.football.data
+package com.ilesha23.football.data.repository
 
 import com.ilesha23.football.data.db.MatchDao
 import com.ilesha23.football.data.model.MatchItem
@@ -18,7 +18,8 @@ class RepositoryImpl @Inject constructor(
     }
 
     override suspend fun get(): List<MatchItem> {
-        return dao.getAll()
-        return emptyList()
+        return withContext(Dispatchers.IO) {
+            dao.getAll().sortedByDescending { it.date }
+        }
     }
 }

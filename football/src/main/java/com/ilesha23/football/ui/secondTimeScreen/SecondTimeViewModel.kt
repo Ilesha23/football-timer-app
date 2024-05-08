@@ -2,7 +2,8 @@ package com.ilesha23.football.ui.secondTimeScreen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ilesha23.football.data.Repository
+import com.ilesha23.football.data.model.MatchItem
+import com.ilesha23.football.data.repository.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -87,7 +88,11 @@ class SecondTimeViewModel @Inject constructor(
             this.ownersScore += this@SecondTimeViewModel.ownersScore.value
             this.guestsScore += this@SecondTimeViewModel.guestsScore.value
         }
-        // todo add to db
+        viewModelScope.launch {
+            repository.insert(
+                repository.currentMatch
+            )
+        }
     }
 
     private fun Long.toMinutesSeconds(): String {
