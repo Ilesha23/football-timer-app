@@ -56,6 +56,7 @@ fun CustomButton(
 
 @Composable
 fun Timer(
+    currentTime: String = "00:00",
     modifier: Modifier = Modifier
 ) {
     Background(
@@ -133,7 +134,7 @@ fun Timer(
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = "00:00",
+                        text = currentTime,
                         style = MaterialTheme.typography.displayMedium,
                         color = MaterialTheme.colorScheme.onBackground
                     )

@@ -1,18 +1,28 @@
 package com.ilesha23.football.ui.newGameScreen
 
 import androidx.lifecycle.ViewModel
+import com.ilesha23.football.data.Repository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
 class NewGameViewModel @Inject constructor(
-
+//    private val repository: Repository
 ) : ViewModel() {
 
     val date = MutableStateFlow(System.currentTimeMillis())
-    val time = MutableStateFlow("")
-    val owners = MutableStateFlow("")
-    val guests = MutableStateFlow("")
+    val time = MutableStateFlow("00:00")
+    val owners = MutableStateFlow("owners")
+    val guests = MutableStateFlow("guests")
+
+    fun start() {
+//        repository.currentMatch.apply {
+//            this.date = this@NewGameViewModel.date.value
+//            this.time = this@NewGameViewModel.time.value
+//            this.owners = this@NewGameViewModel.owners.value
+//            this.guests = this@NewGameViewModel.guests.value
+//        }
+    }
 
     fun updateOwners(s: String) {
         owners.update {

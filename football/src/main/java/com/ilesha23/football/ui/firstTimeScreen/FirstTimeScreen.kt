@@ -16,6 +16,8 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -32,8 +34,11 @@ fun FirstTimeScreen(
     viewModel: FirstTimeViewModel = hiltViewModel(),
     onBreakClick: () -> Unit = {}
 ) {
+    val elapsedTime by viewModel.elapsedTime.collectAsState()
     FirstTimeScreenContent(
+        elapsedTime = elapsedTime,
         onBreakClick = {
+            viewModel.stop()
             onBreakClick()
         }
     )
@@ -41,7 +46,8 @@ fun FirstTimeScreen(
 
 @Composable
 fun FirstTimeScreenContent(
-    onBreakClick: () -> Unit = {}
+    elapsedTime: String,
+    onBreakClick: () -> Unit = {},
 ) {
     Column(
         modifier = Modifier
@@ -61,6 +67,7 @@ fun FirstTimeScreenContent(
             )
             Spacer(modifier = Modifier.height(10.dp))
             Timer(
+                currentTime = elapsedTime,
                 modifier = Modifier
                     .fillMaxHeight(0.8f)
             )

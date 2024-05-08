@@ -62,6 +62,7 @@ fun NewGameScreen(
             onMainMenuClick()
         },
         onStartClick = {
+            viewModel.start()
             onStartClick()
         },
         onOwnersUpdate = {
