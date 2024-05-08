@@ -139,7 +139,9 @@ fun ButtonsWithText(
         }
         Column(
             modifier = Modifier
-                .weight(0.2f)
+                .fillMaxWidth()
+                .weight(0.2f),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
                 text = stringResource(id = R.string.login_screen_terms),

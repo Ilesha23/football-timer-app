@@ -6,25 +6,25 @@
     <string name="login_screen_home">home</string>
     <string name="login_screen_away">away</string>
     <string name="login_screen_time">time</string>
-    <string name="login_screen_new_game">Новая игра</string>
-    <string name="login_screen_history">История</string>
-    <string name="login_screen_terms">Пользовательское соглашение</string>
+    <string name="login_screen_new_game">New game</string>
+    <string name="login_screen_history">History</string>
+    <string name="login_screen_terms">Terms of use</string>
 
     <!-- New game screen -->
-    <string name="new_game_screen_main_menu">Главное меню</string>
-    <string name="new_game_screen_date">дата</string>
-    <string name="new_game_screen_time">время</string>
-    <string name="new_game_screen_owners">хозяева</string>
-    <string name="new_game_screen_guests">гости</string>
-    <string name="new_game_screen_start">Старт</string>
+    <string name="new_game_screen_main_menu">Main menu</string>
+    <string name="new_game_screen_date">date</string>
+    <string name="new_game_screen_time">time</string>
+    <string name="new_game_screen_owners">owners</string>
+    <string name="new_game_screen_guests">guests</string>
+    <string name="new_game_screen_start">Start</string>
 
     <!-- History screen -->
-    <string name="history_screen_back">Назад</string>
+    <string name="history_screen_back">Back</string>
 
     <!-- Time screens -->
-    <string name="time_screen_first">1 тайм</string>
-    <string name="time_screen_second">2 тайм</string>
-    <string name="time_screen_break">Перерыв</string>
-    <string name="time_screen_final">Финал</string>
+    <string name="time_screen_first">1 time</string>
+    <string name="time_screen_second">2 time</string>
+    <string name="time_screen_break">Break</string>
+    <string name="time_screen_final">Finish</string>
 
 </resources>
